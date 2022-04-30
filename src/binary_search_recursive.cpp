@@ -27,14 +27,11 @@ namespace assignment {
     if (data[middle] == search_element) {
       return middle;
     }
-    if (left_index == right_index) {
-      return std::nullopt;
-    }
     if (data[middle] < search_element) {
-      recursive_helper(data, search_element, middle, right_index);
+      return recursive_helper(data, search_element, middle + 1, right_index);
     }
     if (data[middle] > search_element) {
-      recursive_helper(data, search_element, left_index, middle);
+      return recursive_helper(data, search_element, left_index, middle - 1);
     }
   }
 
