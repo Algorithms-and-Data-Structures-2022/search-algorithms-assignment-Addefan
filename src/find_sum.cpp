@@ -7,16 +7,16 @@ namespace assignment {
     // Tips: для создания пары (pair) используйте функцию std::make_pair
     int left = 0;
     int right = static_cast<int>(data.size()) - 1;
-    while (data[left] + data[right] != sum || right >= left) {
+    while (right >= left) {
+      if (data[left] + data[right] == sum) {
+        return std::make_pair(left, right);
+      }
       if (data[left] + data[right] < sum) {
         left += 1;
       }
       if (data[left] + data[right] > sum) {
         right -= 1;
       }
-    }
-    if (data[left] + data[right] == sum) {
-      return std::make_pair(left, right);
     }
     return std::nullopt;
   }
